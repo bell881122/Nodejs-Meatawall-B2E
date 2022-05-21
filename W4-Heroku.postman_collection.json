@@ -1,0 +1,53 @@
+{
+	"variables": [],
+	"info": {
+		"name": "W4-Heroku",
+		"_postman_id": "2de7e02a-e181-0d34-0a3b-10097d70828b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getPosts",
+			"request": {
+				"url": "https://desolate-tundra-77100.herokuapp.com/api/posts",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "addPost",
+			"request": {
+				"url": "https://desolate-tundra-77100.herokuapp.com/api/post",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\":\"貼文測試\",\n\t\"image\":\"https://randomwordgenerator.com/img/picture-generator/54e6d54a4a57aa14f1dc8460962e33791c3ad6e04e5074417d2e72d6924ac6_640.jpg\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "deletePost",
+			"request": {
+				"url": "https://desolate-tundra-77100.herokuapp.com/api/post/ID",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
