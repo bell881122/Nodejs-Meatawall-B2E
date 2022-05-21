@@ -24,7 +24,7 @@ async function addPost(req, res) {
     .catch(err => handleError(res, err));
 };
 
-async function deletPost(req, res) {
+async function deletePost(req, res) {
   const { id } = req.params;
   await Post.findByIdAndDelete({ _id: id })
     .then(result => {
@@ -39,5 +39,5 @@ async function deletPost(req, res) {
 module.exports = {
   getPosts,
   addPost,
-  deletPost,
+  deletePost,
 };
