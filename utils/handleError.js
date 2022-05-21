@@ -7,6 +7,8 @@ const handleError = (res, err) => {
         { ...error, [el]: err.errors[el].properties.message } :
         { ...error, [el]: err.errors[el].message }
     );
+  } else if (err.kind === 'ObjectId' && err.name === 'CastError') {
+    error = { message: 'id 有誤，請重新確認' }
   } else {
     error = err;
   }
@@ -14,6 +16,7 @@ const handleError = (res, err) => {
     "status": "failed",
     "error": error
   })
+  res.end();
 }
 
 module.exports = handleError;
