@@ -6,6 +6,13 @@ require('./connections/mongoose');
 
 const postRouter = require('./routes/postRouter');
 
+// 程式重大錯誤
+process.on('uncaughtException', err => {
+  console.error('Uncaughted Exception！')
+  console.error(err);
+  process.exit(1);
+});
+
 const app = express();
 
 app.use(logger('dev'));
