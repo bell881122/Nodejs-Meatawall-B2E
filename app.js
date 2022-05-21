@@ -13,6 +13,11 @@ process.on('uncaughtException', err => {
   process.exit(1);
 });
 
+// 未捕捉的 promise 錯誤
+process.on('unhandledRejection', (err, promise) => {
+  console.error('未捕捉的 Promise Rejection：', err);
+});
+
 const app = express();
 
 app.use(logger('dev'));
