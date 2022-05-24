@@ -6,7 +6,6 @@ const handleSuccess = require('../utils/handleSuccess.js');
 async function getPosts(req, res, next) {
   await Post.find().populate('user')
     .then(result => handleSuccess(res, { posts: result }))
-    .catch(err => handleError(res, next, err));
 };
 
 async function addPost(req, res, next) {
@@ -21,7 +20,6 @@ async function addPost(req, res, next) {
     content,
     image
   }).then(result => handleSuccess(res, { newPost: result }))
-    .catch(err => handleError(res, next, err));
 };
 
 async function deletePost(req, res, next) {
@@ -33,7 +31,6 @@ async function deletePost(req, res, next) {
       else
         getPosts(req, res)
     })
-    .catch(err => handleError(res, next, err));
 };
 
 module.exports = {
