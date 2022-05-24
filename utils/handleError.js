@@ -1,4 +1,4 @@
-const handleError = (res, err) => {
+const handleError = (res, next, err) => {
   let errors = {};
 
   // 處理 mongoose error
@@ -24,10 +24,7 @@ const handleError = (res, err) => {
   error.isOperational = true;
   error.errors = errors;
 
-  res.status(400).json({
-    "status": "failed",
-    error
-  })
+  next(error);
 }
 
 module.exports = handleError;

@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const handleResponse = require('./utils/handleResponse');
 require('./connections/mongoose');
 
 const postRouter = require('./routes/postRouter');
@@ -29,18 +30,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/', postRouter);
 
 app.use((req, res) => {
-  res.status(404).json({
-    status: 'error',
-    message: "無此路由資訊",
-  });
+  handleResponse.routerNotFound(res);
 });
 
 app.use((err, req, res, next) => {
-  console.log(err.stack);
-  res.status(500).send({
-    status: 'error',
-    message: '網站發生錯誤，請稍後再試'
-  })
+  if (err.isOperational) {
+    handleResponse.operationalRes(res, err);
+  } else {
+    if (process.env.NODE_ENV === 'dev')
+      handleResponse.devRes(res, err);
+    else
+      handleResponse.productionRes(res, err);
+  }
 })
 
 module.exports = app;
