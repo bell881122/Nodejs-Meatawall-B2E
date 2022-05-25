@@ -10,7 +10,7 @@
 		{
 			"name": "getPosts",
 			"request": {
-				"url": "https://desolate-tundra-77100.herokuapp.com/api/posts",
+				"url": "https://dry-citadel-88127.herokuapp.com/api/posts",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -21,7 +21,7 @@
 		{
 			"name": "addPost",
 			"request": {
-				"url": "https://desolate-tundra-77100.herokuapp.com/api/post",
+				"url": "https://dry-citadel-88127.herokuapp.com/api/post",
 				"method": "POST",
 				"header": [
 					{
@@ -41,7 +41,7 @@
 		{
 			"name": "deletePost",
 			"request": {
-				"url": "https://desolate-tundra-77100.herokuapp.com/api/post/ID",
+				"url": "https://dry-citadel-88127.herokuapp.com/api/post/ID",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
