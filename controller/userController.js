@@ -15,17 +15,17 @@ module.exports = {
     let errors = {};
 
     if (!email)
-      errors = { ...errors, email: "請填寫 email" }
+      errors = { ...errors, email: '請填寫 email' }
     else if (!validator.isEmail(email))
-      errors = { ...errors, email: "email 格式有誤，請重新確認" }
+      errors = { ...errors, email: 'email 格式有誤，請重新確認' }
 
     if (!password)
-      errors = { ...errors, password: "請填寫 password" }
+      errors = { ...errors, password: '請填寫 password' }
     else if (!validator.isLength(password, { min: 8 }))
-      errors = { ...errors, password: "密碼字數最少為 8 碼" }
+      errors = { ...errors, password: '密碼字數最少為 8 碼' }
 
     if (!name)
-      errors = { ...errors, name: "請填寫 name" }
+      errors = { ...errors, name: '請填寫 name' }
 
     if (Object.keys(errors).length > 0)
       return handleError(res, next, { errors })
@@ -38,5 +38,35 @@ module.exports = {
       name
     });
     generateSendJWT(newUser, 201, res);
+  },
+  login: async (req, res, next) => {
+    const { email, password } = req.body;
+    let errors = {};
+    if (!email)
+      errors = { ...errors, email: '請填寫 email' }
+    else if (!validator.isEmail(email))
+      errors = { ...errors, email: 'email 格式有誤，請重新確認' }
+
+    if (!password)
+      errors = { ...errors, password: '請填寫 password' }
+    else if (!validator.isLength(password, { min: 8 }))
+      errors = { ...errors, password: '密碼字數最少為 8 碼' }
+
+    if (Object.keys(errors).length > 0)
+      return handleError(res, next, { errors })
+
+    const user = await User.findOne({ email }).select('+password')
+    if (!user)
+      return handleError(res, next, { kind: 'login', message: '帳號或密碼錯誤，請重新確認' })
+
+    const auth = await bcrypt.compare(password, user.password);
+    if (!auth) {
+      return handleError(res, next, {
+        errors: {
+          password: '密碼不正確'
+        }
+      })
+    }
+    generateSendJWT(user, 200, res);
   },
 };
