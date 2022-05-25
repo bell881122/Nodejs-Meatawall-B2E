@@ -1,4 +1,4 @@
-const handleError = (res, next, err) => {
+const handleError = (res, next, err, statusCode) => {
   let errors = {};
   console.log(err)
 
@@ -12,7 +12,7 @@ const handleError = (res, next, err) => {
           { ...errors, [el]: err.errors[el] }
     });
   }
-  
+
   if (err.code === 11000 && Object.keys(err.keyValue)[0] === 'email') {
     errors = {
       ...errors,
@@ -30,7 +30,7 @@ const handleError = (res, next, err) => {
   }
 
   const error = new Error();
-  error.status = 400;
+  error.status = statusCode || 400;
   error.isOperational = true;
   error.errors = errors;
 

@@ -69,4 +69,10 @@ module.exports = {
     }
     generateSendJWT(user, 200, res);
   },
+  checkAuth: async (req, res, next) => {
+    res.status(200).json({
+      status: 'success',
+      user: req.user
+    });
+  },
 };
