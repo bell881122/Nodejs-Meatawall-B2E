@@ -75,4 +75,23 @@ module.exports = {
       user: req.user
     });
   },
+  updatePassword: async (req, res, next) => {
+    const { password, confirmPassword } = req.body;
+    if (!password || !confirmPassword) {
+      return handleError(res, next, { kind: 'update-password', message: '欄位請填寫完整' })
+    }
+    if (!validator.isLength(password, { min: 8 }) || !validator.isLength(confirmPassword, { min: 8 })) {
+      return handleError(res, next, { kind: 'update-password', message: '密碼字數最少為 8 碼' })
+    }
+    if (password !== confirmPassword) {
+      return handleError(res, next, { kind: 'update-password', message: '密碼不一致' })
+    }
+
+    newPassword = await bcrypt.hash(password, 12);
+
+    const user = await User.findByIdAndUpdate(req.user.id, {
+      password: newPassword
+    });
+    generateSendJWT(user, 200, res)
+  }
 };
