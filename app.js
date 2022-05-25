@@ -6,6 +6,7 @@ const handleResponse = require('./utils/handleResponse');
 require('./connections/mongoose');
 
 const postRouter = require('./routes/postRouter');
+const userRouter = require('./routes/userRouter');
 
 // 程式重大錯誤
 process.on('uncaughtException', err => {
@@ -28,6 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/', postRouter);
+app.use('/api/', userRouter);
 
 app.use((req, res) => {
   handleResponse.routerNotFound(res);

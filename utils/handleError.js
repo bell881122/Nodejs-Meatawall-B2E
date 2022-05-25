@@ -1,13 +1,23 @@
 const handleError = (res, next, err) => {
   let errors = {};
+  console.log(err)
 
   // 處理 mongoose error
   if (err.errors) {
     [...Object.keys(err.errors)].forEach(el => {
       errors = err.errors[el].properties?.message ?
         { ...errors, [el]: err.errors[el].properties.message } :
-        { ...errors, [el]: err.errors[el].message }
+        err.errors[el].message ?
+          { ...errors, [el]: err.errors[el].message } :
+          { ...errors, [el]: err.errors[el] }
     });
+  }
+  
+  if (err.code === 11000 && Object.keys(err.keyValue)[0] === 'email') {
+    errors = {
+      ...errors,
+      [Object.keys(err.keyValue)]: '已有該帳號，請重新確認'
+    }
   }
 
   // 自訂 error

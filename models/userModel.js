@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
     default: Date.now,
     select: false
   }
-});
+}, { versionKey: false });
 // User
 const User = mongoose.model('user', userSchema);
 
