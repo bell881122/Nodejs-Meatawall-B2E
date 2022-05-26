@@ -93,5 +93,14 @@ module.exports = {
       password: newPassword
     });
     generateSendJWT(user, 200, res)
-  }
+  },
+  getProfile: async (req, res, next) => {
+    const { _id } = req.user;
+    const user = await User.findOne({ _id })
+
+    res.json({
+      status: 'success',
+      user
+    });
+  },
 };
