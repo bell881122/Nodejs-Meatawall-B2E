@@ -36,7 +36,7 @@ module.exports = {
     const decoded = await new Promise((resolve, reject) => {
       jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
         if (err) {
-          reject(err)
+          return handleError(res, next, { errors: { checkAuth: 'token 過期或失效，請重新認證' } }, 401)
         } else {
           resolve(payload)
         }
