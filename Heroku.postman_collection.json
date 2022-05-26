@@ -1,301 +1,256 @@
 {
+	"variables": [],
 	"info": {
-		"_postman_id": "9a3cedaa-4a6c-4986-a8ab-ca73fe5672e6",
 		"name": "Heroku",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "96b9774f-76fe-a0d8-09c8-36d88365068c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "/post",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer "
-					}
-				],
-				"url": {
-					"raw": "https://serene-bayou-10788.herokuapp.com/api/posts",
-					"protocol": "https",
-					"host": [
-						"serene-bayou-10788",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"posts"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/post",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
+			"name": "otherAPI",
+			"description": "",
+			"item": [
+				{
+					"name": "/users",
+					"request": {
+						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
 					},
-					{
-						"key": "Authorization",
-						"value": "Bearer "
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"content\":\"貼文測試\",\n\t\"image\":\"https://randomwordgenerator.com/img/picture-generator/54e6d54a4a57aa14f1dc8460962e33791c3ad6e04e5074417d2e72d6924ac6_640.jpg\"\n}"
+					"response": []
 				},
-				"url": {
-					"raw": "https://serene-bayou-10788.herokuapp.com/api/post",
-					"protocol": "https",
-					"host": [
-						"serene-bayou-10788",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"post"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/post/ID",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer "
-					}
-				],
-				"url": {
-					"raw": "https://serene-bayou-10788.herokuapp.com/api/post/ID",
-					"protocol": "https",
-					"host": [
-						"serene-bayou-10788",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"post",
-						"ID"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/users",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://serene-bayou-10788.herokuapp.com/api/users",
-					"protocol": "https",
-					"host": [
-						"serene-bayou-10788",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/users/sign_up",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"email\": \"email@rerg.com\",\n\"password\": \"1234qwer\",\n\"name\": \"test\"\n}"
-				},
-				"url": {
-					"raw": "https://serene-bayou-10788.herokuapp.com/api/users/sign_up",
-					"protocol": "https",
-					"host": [
-						"serene-bayou-10788",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"users",
-						"sign_up"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/users/sign_in",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"email\": \"email3@rerg.com\",\n\"password\": \"1234qwer\"\n}"
-				},
-				"url": {
-					"raw": "https://serene-bayou-10788.herokuapp.com/api/users/sign_in",
-					"protocol": "https",
-					"host": [
-						"serene-bayou-10788",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"users",
-						"sign_in"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/users/checkAuth",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer "
-					}
-				],
-				"url": {
-					"raw": "https://serene-bayou-10788.herokuapp.com/api/users/checkAuth",
-					"protocol": "https",
-					"host": [
-						"serene-bayou-10788",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"users",
-						"checkAuth"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/users/updatePassword",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer "
+				{
+					"name": "/users/checkAuth",
+					"request": {
+						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users/checkAuth",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
 					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"password\":\"1234qwer\",\n\t\"confirmPassword\":\"1234qwer\"\n}"
+					"response": []
 				},
-				"url": {
-					"raw": "https://serene-bayou-10788.herokuapp.com/api/users/updatePassword",
-					"protocol": "https",
-					"host": [
-						"serene-bayou-10788",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"users",
-						"updatePassword"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/users/profile",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer "
-					}
-				],
-				"url": {
-					"raw": "https://serene-bayou-10788.herokuapp.com/api/users/profile",
-					"protocol": "https",
-					"host": [
-						"serene-bayou-10788",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"users",
-						"profile"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/users/profile",
-			"request": {
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer "
+				{
+					"name": "/users/sign_up",
+					"request": {
+						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users/sign_up",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"email\": \"test@gmail.com\",\n\"password\": \"1234qwer\",\n\"name\": \"test\"\n}"
+						},
+						"description": ""
 					},
+					"response": []
+				},
+				{
+					"name": "/users/sign_in",
+					"request": {
+						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users/sign_in",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"email\": \"test@gmail.com\",\n\"password\": \"1234qwer\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "/users/updatePassword",
+					"request": {
+						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users/updatePassword",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\":\"1234qwer\",\n\t\"confirmPassword\":\"1234qwer\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "/users/profile",
+					"request": {
+						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users/profile",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "/users/profile",
+					"request": {
+						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users/profile",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"photo\":\"https://ccccc.jpg\",\n  \"sex\":\"male\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "/post",
+					"request": {
+						"url": "https://sleepy-ridge-44164.herokuapp.com/api/posts",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "/post",
+					"request": {
+						"url": "https://sleepy-ridge-44164.herokuapp.com/api/post",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\":\"貼文測試\",\n\t\"image\":\"https://randomwordgenerator.com/img/picture-generator/54e6d54a4a57aa14f1dc8460962e33791c3ad6e04e5074417d2e72d6924ac6_640.jpg\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "/post/ID",
+					"request": {
+						"url": "https://sleepy-ridge-44164.herokuapp.com/api/post/ID",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/upload",
+			"request": {
+				"url": "https://sleepy-ridge-44164.herokuapp.com/api/upload",
+				"method": "POST",
+				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/json"
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
 					}
 				],
 				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"photo\":\"https://ccccc.jpg\",\n  \"sex\":\"male\"\n}"
-				},
-				"url": {
-					"raw": "https://serene-bayou-10788.herokuapp.com/api/users/profile",
-					"protocol": "https",
-					"host": [
-						"serene-bayou-10788",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"users",
-						"profile"
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
 					]
-				}
+				},
+				"description": ""
 			},
 			"response": []
 		}
