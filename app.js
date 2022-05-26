@@ -2,11 +2,13 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const fileupload = require("express-fileupload");
 const handleResponse = require('./utils/handleResponse');
 require('./connections/mongoose');
 
 const postRouter = require('./routes/postRouter');
 const userRouter = require('./routes/userRouter');
+const utilsRouter = require('./routes/utilsRouter');
 
 // 程式重大錯誤
 process.on('uncaughtException', err => {
@@ -27,9 +29,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileupload());
 
 app.use('/api/', postRouter);
 app.use('/api/', userRouter);
+app.use('/api/', utilsRouter);
 
 app.use((req, res) => {
   handleResponse.routerNotFound(res);
