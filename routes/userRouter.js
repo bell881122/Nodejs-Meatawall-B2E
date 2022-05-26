@@ -4,7 +4,7 @@ const UserController = require('../controller/userController');
 const handleErrorAsync = require('../utils/handleErrorAsync');
 const { isAuth } = require('../utils/auth');
 
-router.get('/users', handleErrorAsync(UserController.getUsers));
+router.get('/users', isAuth, handleErrorAsync(UserController.getUsers));
 router.get('/users/checkAuth', isAuth, handleErrorAsync(UserController.checkAuth));
 router.post('/users/sign_up', handleErrorAsync(UserController.register));
 router.post('/users/sign_in', handleErrorAsync(UserController.login));
