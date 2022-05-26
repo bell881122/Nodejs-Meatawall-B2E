@@ -1,51 +1,301 @@
 {
-	"variables": [],
 	"info": {
-		"name": "W4-Heroku",
-		"_postman_id": "2de7e02a-e181-0d34-0a3b-10097d70828b",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"_postman_id": "9a3cedaa-4a6c-4986-a8ab-ca73fe5672e6",
+		"name": "Heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getPosts",
+			"name": "/post",
 			"request": {
-				"url": "https://dry-citadel-88127.herokuapp.com/api/posts",
 				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": ""
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer "
+					}
+				],
+				"url": {
+					"raw": "https://serene-bayou-10788.herokuapp.com/api/posts",
+					"protocol": "https",
+					"host": [
+						"serene-bayou-10788",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"posts"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "addPost",
+			"name": "/post",
 			"request": {
-				"url": "https://dry-citadel-88127.herokuapp.com/api/post",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer "
 					}
 				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"content\":\"貼文測試\",\n\t\"image\":\"https://randomwordgenerator.com/img/picture-generator/54e6d54a4a57aa14f1dc8460962e33791c3ad6e04e5074417d2e72d6924ac6_640.jpg\"\n}"
 				},
-				"description": ""
+				"url": {
+					"raw": "https://serene-bayou-10788.herokuapp.com/api/post",
+					"protocol": "https",
+					"host": [
+						"serene-bayou-10788",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"post"
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "deletePost",
+			"name": "/post/ID",
 			"request": {
-				"url": "https://dry-citadel-88127.herokuapp.com/api/post/ID",
 				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer "
+					}
+				],
+				"url": {
+					"raw": "https://serene-bayou-10788.herokuapp.com/api/post/ID",
+					"protocol": "https",
+					"host": [
+						"serene-bayou-10788",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"post",
+						"ID"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users",
+			"request": {
+				"method": "GET",
 				"header": [],
-				"body": {},
-				"description": ""
+				"url": {
+					"raw": "https://serene-bayou-10788.herokuapp.com/api/users",
+					"protocol": "https",
+					"host": [
+						"serene-bayou-10788",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/sign_up",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\": \"email@rerg.com\",\n\"password\": \"1234qwer\",\n\"name\": \"test\"\n}"
+				},
+				"url": {
+					"raw": "https://serene-bayou-10788.herokuapp.com/api/users/sign_up",
+					"protocol": "https",
+					"host": [
+						"serene-bayou-10788",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"sign_up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/sign_in",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\": \"email3@rerg.com\",\n\"password\": \"1234qwer\"\n}"
+				},
+				"url": {
+					"raw": "https://serene-bayou-10788.herokuapp.com/api/users/sign_in",
+					"protocol": "https",
+					"host": [
+						"serene-bayou-10788",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"sign_in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/checkAuth",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer "
+					}
+				],
+				"url": {
+					"raw": "https://serene-bayou-10788.herokuapp.com/api/users/checkAuth",
+					"protocol": "https",
+					"host": [
+						"serene-bayou-10788",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"checkAuth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/updatePassword",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer "
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"password\":\"1234qwer\",\n\t\"confirmPassword\":\"1234qwer\"\n}"
+				},
+				"url": {
+					"raw": "https://serene-bayou-10788.herokuapp.com/api/users/updatePassword",
+					"protocol": "https",
+					"host": [
+						"serene-bayou-10788",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"updatePassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer "
+					}
+				],
+				"url": {
+					"raw": "https://serene-bayou-10788.herokuapp.com/api/users/profile",
+					"protocol": "https",
+					"host": [
+						"serene-bayou-10788",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users/profile",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer "
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"photo\":\"https://ccccc.jpg\",\n  \"sex\":\"male\"\n}"
+				},
+				"url": {
+					"raw": "https://serene-bayou-10788.herokuapp.com/api/users/profile",
+					"protocol": "https",
+					"host": [
+						"serene-bayou-10788",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"profile"
+					]
+				}
 			},
 			"response": []
 		}
