@@ -98,9 +98,27 @@ module.exports = {
     const { _id } = req.user;
     const user = await User.findOne({ _id })
 
-    res.json({
-      status: 'success',
-      user
+    handleSuccess(res, { user });
+  },
+  updateProfile: async (req, res, next) => {
+    const { user } = req;
+    const { photo, sex } = req.body;
+
+    let errors = {};
+    const sexs = ["male", "female", "other"];
+    if (photo && !photo.startsWith('https://'))
+      errors = { ...errors, avatar: '請使用 https 開頭的圖片網址' }
+    if (sex && sexs.indexOf(sex) < 0)
+      errors = { ...errors, sex: `請選擇以下任一種性別：${sexs}` }
+    if (Object.keys(errors).length > 0)
+      return handleError(res, next, { errors })
+
+    await User.findByIdAndUpdate(user._id, {
+      photo: photo ? photo : user.photo,
+      sex: sex ? sex : user.sex,
     });
+
+    const newUser = await User.findById({ _id: user._id })
+    handleSuccess(res, { newUser });
   },
 };
