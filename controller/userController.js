@@ -121,4 +121,28 @@ module.exports = {
     const newUser = await User.findById({ _id: user._id })
     handleSuccess(res, { newUser });
   },
+  addUserFollow: async (req, res, next) => {
+    const follower = req.user._id;
+    const following = req.params.id;
+
+    if (following && follower.valueOf() === following)
+      return handleError(res, next, { kind: 'follow', message: '使用者無法追蹤自己' })
+    await User.findOne({ _id: following })
+      .catch(err => handleError(res, next, { kind: 'follow', message: '找不到追蹤的使用者' }))
+
+    await User.findByIdAndUpdate(follower, { $addToSet: { following } });
+    await User.findByIdAndUpdate(following, { $addToSet: { follower } });
+    handleSuccess(res, { follow: '追蹤成功' });
+  },
+  deleteUserFollow: async (req, res, next) => {
+    const followerId = req.user._id;
+    const followingId = req.params.id;
+
+    await User.findOne({ _id: followingId })
+      .catch(err => handleError(res, next, { kind: 'follow', message: '找不到取消追蹤的使用者' }))
+
+    await User.findByIdAndUpdate(followerId, { $pull: { following: followingId } });
+    await User.findByIdAndUpdate(followingId, { $pull: { follower: followerId } });
+    handleSuccess(res, { unfollow: '取消追蹤成功' });
+  },
 };
