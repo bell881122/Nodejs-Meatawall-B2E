@@ -2,19 +2,19 @@
 	"variables": [],
 	"info": {
 		"name": "Heroku",
-		"_postman_id": "96b9774f-76fe-a0d8-09c8-36d88365068c",
+		"_postman_id": "455f56fe-3991-0eb5-5ef0-06fd50e8be27",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "otherAPI",
+			"name": "utils",
 			"description": "",
 			"item": [
 				{
 					"name": "/users",
 					"request": {
-						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users",
+						"url": "https://powerful-refuge-96450.herokuapp.com/api/users",
 						"method": "GET",
 						"header": [
 							{
@@ -34,7 +34,7 @@
 				{
 					"name": "/users/checkAuth",
 					"request": {
-						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users/checkAuth",
+						"url": "https://powerful-refuge-96450.herokuapp.com/api/users/checkAuth",
 						"method": "GET",
 						"header": [
 							{
@@ -52,169 +52,15 @@
 					"response": []
 				},
 				{
-					"name": "/users/sign_up",
+					"name": "/post/{postID}",
 					"request": {
-						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users/sign_up",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\"email\": \"test@gmail.com\",\n\"password\": \"1234qwer\",\n\"name\": \"test\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "/users/sign_in",
-					"request": {
-						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users/sign_in",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\"email\": \"test@gmail.com\",\n\"password\": \"1234qwer\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "/users/updatePassword",
-					"request": {
-						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users/updatePassword",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer ",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"password\":\"1234qwer\",\n\t\"confirmPassword\":\"1234qwer\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "/users/profile",
-					"request": {
-						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users/profile",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer ",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "/users/profile",
-					"request": {
-						"url": "https://sleepy-ridge-44164.herokuapp.com/api/users/profile",
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer ",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"photo\":\"https://ccccc.jpg\",\n  \"sex\":\"male\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "/post",
-					"request": {
-						"url": "https://sleepy-ridge-44164.herokuapp.com/api/posts",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer ",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "/post",
-					"request": {
-						"url": "https://sleepy-ridge-44164.herokuapp.com/api/post",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer ",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"content\":\"貼文測試\",\n\t\"image\":\"https://randomwordgenerator.com/img/picture-generator/54e6d54a4a57aa14f1dc8460962e33791c3ad6e04e5074417d2e72d6924ac6_640.jpg\"\n}"
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "/post/ID",
-					"request": {
-						"url": "https://sleepy-ridge-44164.herokuapp.com/api/post/ID",
+						"url": "https://powerful-refuge-96450.herokuapp.com/api/post/{postID}",
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer "
+								"value": "Bearer ",
+								"description": ""
 							}
 						],
 						"body": {
@@ -228,9 +74,353 @@
 			]
 		},
 		{
+			"name": "/users/sign_up",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/users/sign_up",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\": \"test@meta.tw\",\n\"password\": \"1234qwer\",\n\"name\": \"test\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/users/sign_in",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/users/sign_in",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\": \"test@meta.tw\",\n\"password\": \"1234qwer\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/users/updatePassword",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/users/updatePassword",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"password\":\"1234qwer\",\n\t\"confirmPassword\":\"1234qwer\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/users/profile",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/users/profile",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/users/profile",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/users/profile",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"photo\":\"https://ccccc.jpg\",\n  \"sex\":\"male\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/users/{userID}/follow",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/users/{userID}/follow",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/users/{userID}/unfollow",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/users/{userID}/unfollow",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/users/getLikeList",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/users/getLikeList",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\": \"test@gmail.com\",\n\"password\": \"1234qwer\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/users/following",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/users/following",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\": \"test@gmail.com\",\n\"password\": \"1234qwer\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/posts",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/posts",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/{postID}",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/posts/{postID}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/posts",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/post",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\":\"貼文測試3\",\n\t\"image\":\"https://randomwordgenerator.com/img/picture-generator/54e6d54a4a57aa14f1dc8460962e33791c3ad6e04e5074417d2e72d6924ac6_640.jpg\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/{postID}/like",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/posts/{postID}/like",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/{postID}/unlike",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/posts/{postID}/unlike",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/{postID}/comment",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/posts/{postID}/comment",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"commentContent\":\"\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/posts/user/{userID}",
+			"request": {
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/posts/user/{userID}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "/upload",
 			"request": {
-				"url": "https://sleepy-ridge-44164.herokuapp.com/api/upload",
+				"url": "https://powerful-refuge-96450.herokuapp.com/api/upload",
 				"method": "POST",
 				"header": [
 					{
