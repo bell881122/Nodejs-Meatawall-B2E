@@ -16,13 +16,15 @@ async function getPost(req, res, next) {
 
 async function addPost(req, res, next) {
   const { content, image } = req.body;
+  const { _id } = req.user;
+
   if (image) {
     if (!image.startsWith('https://')) {
       return handleError(res, next, { kind: 'image', message: '請使用 https 開頭的圖片網址' })
     }
   }
   await Post.create({
-    user: '62838efef6b9c0e789d73569',
+    user: _id,
     content,
     image
   }).then(result => handleSuccess(res, { newPost: result }))
