@@ -14,6 +14,12 @@ async function getPost(req, res, next) {
     .then(result => handleSuccess(res, { posts: result }))
 };
 
+async function getUserPost(req, res, next) {
+  const { id } = req.params;
+  await Post.find({ user: id }).populate('user')
+    .then(result => handleSuccess(res, { posts: result }))
+};
+
 async function addPost(req, res, next) {
   const { content, image } = req.body;
   const { _id } = req.user;
@@ -44,6 +50,7 @@ async function deletePost(req, res, next) {
 module.exports = {
   getPosts,
   getPost,
+  getUserPost,
   addPost,
   deletePost,
 };

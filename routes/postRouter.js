@@ -6,6 +6,7 @@ const { isAuth } = require('../utils/auth');
 
 router.get('/posts', isAuth, handleErrorAsync(PostController.getPosts));
 router.get('/posts/:id', isAuth, handleErrorAsync(PostController.getPost));
+router.get('/posts/user/:id', isAuth, handleErrorAsync(PostController.getUserPost));
 router.post('/post', isAuth, handleErrorAsync(PostController.addPost));
 router.delete('/post/:id', isAuth, handleErrorAsync(PostController.deletePost));
 
