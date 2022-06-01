@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 dotenv.config({ path: './config.env' })
 let url = process.env.DATABASE;
-const dbName = 'metaWall-test';
+const dbName = 'metaWall-w8';
 url = url.replace('<password>', process.env.DATABASE_PASSWORD)
 url = url.replace('<dbName>', dbName)
 
