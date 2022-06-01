@@ -84,6 +84,14 @@ async function addPostComment(req, res, next) {
   getPost(req, res, next);
 };
 
+async function getLikeList(req, res, next) {
+  const userId = req.user._id;
+  await Post.find({
+    likes: { $in: [userId] }
+  }).populate('user')
+    .then(result => handleSuccess(res, { posts: result }))
+};
+
 module.exports = {
   getPosts,
   getPost,
@@ -93,4 +101,5 @@ module.exports = {
   deletePostLike,
   deletePost,
   addPostComment,
+  getLikeList,
 };
