@@ -16,6 +16,11 @@ async function getPost(req, res, next) {
 
 async function getUserPost(req, res, next) {
   const { id } = req.params;
+
+  const user = await User.findOne({ _id: id })
+  if(!user)
+  return handleError(res, next, { kind: 'getUserPost', message: '找不到該使用者，請重新確認' })
+
   await Post.find({ user: id }).populate('user')
     .then(result => handleSuccess(res, { posts: result }))
 };
