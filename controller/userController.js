@@ -145,4 +145,10 @@ module.exports = {
     await User.findByIdAndUpdate(followingId, { $pull: { follower: followerId } });
     handleSuccess(res, { unfollow: '取消追蹤成功' });
   },
+  getUserFollowing: async (req, res, next) => {
+    const { _id } = req.user;
+    const user = await User.findOne({ _id })
+    const following = user.following;
+    handleSuccess(res, { following });
+  },
 };

@@ -15,5 +15,6 @@ router.patch('/users/profile', isAuth, handleErrorAsync(UserController.updatePro
 router.get('/users/getLikeList', isAuth, handleErrorAsync(PostController.getLikeList));
 router.post('/users/:id/follow', isAuth, handleErrorAsync(UserController.addUserFollow));
 router.delete('/users/:id/unfollow', isAuth, handleErrorAsync(UserController.deleteUserFollow));
+router.get('/users/following', isAuth, handleErrorAsync(UserController.getUserFollowing));
 
 module.exports = router;
