@@ -8,6 +8,12 @@ async function getPosts(req, res, next) {
     .then(result => handleSuccess(res, { posts: result }))
 };
 
+async function getPost(req, res, next) {
+  const { id } = req.params;
+  await Post.find({ _id: id }).populate('user')
+    .then(result => handleSuccess(res, { posts: result }))
+};
+
 async function addPost(req, res, next) {
   const { content, image } = req.body;
   if (image) {
@@ -35,6 +41,7 @@ async function deletePost(req, res, next) {
 
 module.exports = {
   getPosts,
+  getPost,
   addPost,
   deletePost,
 };

@@ -5,6 +5,7 @@ const handleErrorAsync = require('../utils/handleErrorAsync');
 const { isAuth } = require('../utils/auth');
 
 router.get('/posts', isAuth, handleErrorAsync(PostController.getPosts));
+router.get('/posts/:id', isAuth, handleErrorAsync(PostController.getPost));
 router.post('/post', isAuth, handleErrorAsync(PostController.addPost));
 router.delete('/post/:id', isAuth, handleErrorAsync(PostController.deletePost));
 
