@@ -8,6 +8,8 @@ router.get('/posts', isAuth, handleErrorAsync(PostController.getPosts));
 router.get('/posts/:id', isAuth, handleErrorAsync(PostController.getPost));
 router.get('/posts/user/:id', isAuth, handleErrorAsync(PostController.getUserPost));
 router.post('/post', isAuth, handleErrorAsync(PostController.addPost));
+router.post('/posts/:id/like', isAuth, handleErrorAsync(PostController.addPostLike));
+router.delete('/posts/:id/unlike', isAuth, handleErrorAsync(PostController.deletePostLike));
 router.delete('/post/:id', isAuth, handleErrorAsync(PostController.deletePost));
 
 module.exports = router;

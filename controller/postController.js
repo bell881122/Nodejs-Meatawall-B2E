@@ -36,6 +36,24 @@ async function addPost(req, res, next) {
   }).then(result => handleSuccess(res, { newPost: result }))
 };
 
+async function addPostLike(req, res, next) {
+  const postId = req.params.id;
+  const { _id } = req.user;
+  await Post.findByIdAndUpdate({ _id: postId }, {
+    $addToSet: { likes: _id }
+  })
+  getPost(req, res, next);
+};
+
+async function deletePostLike(req, res, next) {
+  const postId = req.params.id;
+  const { _id } = req.user;
+  await Post.findByIdAndUpdate({ _id: postId }, {
+    $pull: { likes: _id }
+  })
+  getPost(req, res, next);
+};
+
 async function deletePost(req, res, next) {
   const { id } = req.params;
   await Post.findByIdAndDelete({ _id: id })
@@ -52,5 +70,7 @@ module.exports = {
   getPost,
   getUserPost,
   addPost,
+  addPostLike,
+  deletePostLike,
   deletePost,
 };
