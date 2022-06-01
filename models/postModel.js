@@ -25,6 +25,23 @@ const postSchema = new mongoose.Schema(
         ref: 'user'
       }
     ],
+    comments: [
+      {
+        commentContent: {
+          type: String,
+          required: [true, 'commentContent 未填寫']
+        },
+        user: {
+          type: mongoose.Schema.ObjectId,
+          ref: "user",
+          required: [true, '使用者 ID 未填寫']
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now,
+        },
+      }
+    ],
   }, { versionKey: false });
 const Post = mongoose.model('Post', postSchema);
 

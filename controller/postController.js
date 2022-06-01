@@ -65,6 +65,25 @@ async function deletePost(req, res, next) {
     })
 };
 
+async function addPostComment(req, res, next) {
+  const { commentContent } = req.body;
+  if (!commentContent) {
+    return handleError(res, next, { kind: 'comment', message: '請填寫留言' })
+  }
+
+  const postId = req.params.id;
+  const { _id } = req.user;
+  await Post.findByIdAndUpdate({ _id: postId }, {
+    $addToSet: {
+      comments: {
+        commentContent,
+        user: _id
+      }
+    }
+  })
+  getPost(req, res, next);
+};
+
 module.exports = {
   getPosts,
   getPost,
@@ -73,4 +92,5 @@ module.exports = {
   addPostLike,
   deletePostLike,
   deletePost,
+  addPostComment,
 };
